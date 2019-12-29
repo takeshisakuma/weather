@@ -142,7 +142,7 @@ const getPosition = () => {
                     const weatherIcon = document.querySelector("#js-icon");
                     console.log(weatherIcon);
                     const weatherIconPic = document.createElement("img");
-                    weatherIconPic.src = `/img/${JSON.stringify(data.weather[0].icon).replace(/\"/g, "")}@2x.png`;
+                    weatherIconPic.src = `img/${JSON.stringify(data.weather[0].icon).replace(/\"/g, "")}@2x.png`;
                     console.log(weatherIconPic);
                     weatherIcon.appendChild(weatherIconPic);
 
