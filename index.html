@@ -4,21 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Weather App</title>
+    <meta name="description" content="openweathermapのAPIを利用した天気予報アプリです。" />
+    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
+
     <link rel="stylesheet" href="style.css">
     <script src="main.js" defer></script>
 </head>
 <body>
+    <h1 class="mainHeadig">Weather App</h1>
+
+
+
+    <p id="js-icon" class="icon"></p>
+    <p id="js-description" class="description"></p>
+
+
+
     <p id="js-tempAverage"></p>
     <p id="js-tempMax"></p>
     <p id="js-tempMin"></p>
 
 
-    <p id="js-icon"></p>
 
-    　　　 <p id="js-positionLat"></p>
 
+    <p id="js-positionLat"></p>
     <p id="js-positionLon"></p>
-    <iframe id="js-embedMap"></iframe>
+    <iframe id="js-embedMap" class="embedMap"></iframe>
 </body>
 </html>
