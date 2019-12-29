@@ -128,21 +128,21 @@ const getPosition = () => {
 
                     //気温
                     const tempAverage = document.querySelector("#js-tempAverage");
-                    tempAverage.innerText = "気温：" + JSON.stringify(data.main.temp);
+                    tempAverage.innerText = `気温：${JSON.stringify(data.main.temp)}℃`;
 
                     //最高気温
                     const tempMax = document.querySelector("#js-tempMax");
-                    tempMax.innerText = "最高気温：" + JSON.stringify(data.main.temp_max);
+                    tempMax.innerText = `最高気温：${JSON.stringify(data.main.temp_max)}℃`;
 
                     //最低気温
                     const tempMin = document.querySelector("#js-tempMin");
-                    tempMin.innerText = "最低気温：" + JSON.stringify(data.main.temp_min);
+                    tempMin.innerText = `最低気温：${JSON.stringify(data.main.temp_min)}℃`;
 
                     //アイコン
                     const weatherIcon = document.querySelector("#js-icon");
                     console.log(weatherIcon);
                     const weatherIconPic = document.createElement("img");
-                    weatherIconPic.src = "http://openweathermap.org/img/wn/" + JSON.stringify(data.weather[0].icon).replace(/\"/g, "") + "@2x.png";
+                    weatherIconPic.src = `/img/${JSON.stringify(data.weather[0].icon).replace(/\"/g, "")}@2x.png`;
                     console.log(weatherIconPic);
                     weatherIcon.appendChild(weatherIconPic);
 

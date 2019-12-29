@@ -29,7 +29,13 @@ p {
 }
 
 
+.tempGroup {
+    margin: 40px auto 0;
+    display: table;
+}
+
 .embedMap {
+    margin-top: 40px;
     width: 100%;
     height: 200px;
     border: none;
