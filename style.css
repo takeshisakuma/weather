@@ -1,0 +1,36 @@
+body {
+    font-family: "M PLUS 1p";
+}
+
+div,
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.mainHeadig {
+    font-size: 40px;
+    text-align: center;
+
+}
+
+
+.icon {
+    width: 100%;
+    text-align: center;
+}
+
+.icon img {}
+
+.description {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+
+.embedMap {
+    width: 100%;
+    height: 200px;
+    border: none;
+}
