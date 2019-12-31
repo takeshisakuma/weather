@@ -2,6 +2,7 @@ body {
     font-family: "M PLUS 1p";
 }
 
+body,
 div,
 p,
 h1,
@@ -19,79 +20,59 @@ h2 {
 
 
 
-
-@media screen and (max-width:849px) {
+@media screen and (max-width:1259px) {
     .forecastSection {
-
+        overflow: auto;
+        white-space: nowrap;
+        display: flex;
         margin: 40px auto 0;
+        padding: 0 20px 20px;
         width: 100%;
+        box-sizing: border-box;
+    }
+
+    .forecastSection::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    .forecastSection::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    .forecastSection::-webkit-scrollbar-thumb {
+        background: #bcbcbc;
     }
 }
 
-@media screen and (min-width:850px) and (max-width:959px) {
 
+@media screen and (min-width:1260px) {
     .forecastSection {
         display: flex;
         margin: 40px auto 0;
-        flex-wrap: wrap;
-    }
-
-}
-
-
-
-@media screen and (min-width:960px) {
-    .forecastSection {
-        display: flex;
-        margin: 40px auto 0;
-        width: 1200px;
+        width: 1250px;
     }
 }
 
 
 
-@media screen and (max-width:849px) {
 
-    .dayCard {
-        background-color: azure;
-        box-shadow: #787878 1px 1px 4px;
-        border-radius: 4px;
-        padding: 0 40px 40px;
-        box-sizing: border-box;
-        overflow: hidden;
-        margin: 40px 20px 0;
-    }
+
+.dayCard {
+    margin-top: 20px;
+    flex-shrink: 0;
+    width: 300px;
+    background-color: azure;
+    box-shadow: #787878 1px 1px 4px;
+    border-radius: 4px;
+    padding: 0 40px 40px;
 }
 
-@media screen and (min-width:850px) and (max-width:959px) {
 
-    .dayCard {
-        width: 45%;
-        background-color: azure;
-        box-shadow: #787878 1px 1px 4px;
-        border-radius: 4px;
-        padding: 0 40px 40px;
-        box-sizing: border-box;
-        overflow: hidden;
-        margin: 40px 20px 0;
-    }
+
+.dayCard+.dayCard {
+    margin-left: 40px;
 }
 
-@media screen and (min-width:960px) {
-    .dayCard {
-        width: 300px;
-        background-color: azure;
-        box-shadow: #787878 1px 1px 4px;
-        border-radius: 4px;
-        padding: 0 40px 40px;
-    }
-}
-
-@media screen and (min-width:960px) {
-    .dayCard+.dayCard {
-        margin-left: 40px;
-    }
-}
 
 .dayHeading {
     margin-top: 40px;
