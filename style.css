@@ -46,6 +46,7 @@ p {
     font-weight: bold;
     font-size: 30px;
     margin-top: 40px;
+    word-wrap: break-word;
 }
 
 .embedMap {
