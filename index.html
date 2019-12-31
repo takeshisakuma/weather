@@ -14,21 +14,45 @@
 <body>
     <h1 class="mainHeadig">Weather App</h1>
 
+    <section class="forecastSection">
+        <article class="dayCard">
+            <h2 class="dayHeading">今日の天気</h2>
+            <p class="icon js-icon"></p>
+            <p class="description js-description"></p>
 
+            <div class="tempGroup">
+                <p class="js-tempMin tempChild"></p>
+                <p class="js-tempAverage tempChild"></p>
+                <p class="js-tempMax tempChild"></p>
 
-    <p id="js-icon" class="icon"></p>
-    <p id="js-description" class="description"></p>
+            </div>
+        </article>
 
+        <article class="dayCard">
+            <h2 class="dayHeading">明日の天気</h2>
+            <p class="icon js-icon"></p>
+            <p class="js-description description"></p>
 
-    <div class="tempGroup">
-        <p id="js-tempAverage"></p>
-        <p id="js-tempMax"></p>
-        <p id="js-tempMin"></p>
-    </div>
+            <div class="tempGroup">
+                <p class="js-tempMin tempChild"></p>
+                <p class="js-tempAverage tempChild"></p>
+                <p class="js-tempMax tempChild"></p>
 
+            </div>
+        </article>
 
+        <article class="dayCard">
+            <h2 class="dayHeading">明後日の天気</h2>
+            <p class="icon js-icon"></p>
+            <p class="description js-description"></p>
 
-
+            <div class="tempGroup">
+                <p class="js-tempMin tempChild"></p>
+                <p class="js-tempAverage tempChild"></p>
+                <p class="js-tempMax tempChild"></p>
+            </div>
+        </article>
+    </section>
 
     <p id="js-currentPosition" class="currentPosition"></p>
 

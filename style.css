@@ -3,7 +3,9 @@ body {
 }
 
 div,
-p {
+p,
+h1,
+h2 {
     margin: 0;
     padding: 0;
 }
@@ -11,17 +13,99 @@ p {
 .mainHeadig {
     font-size: 40px;
     text-align: center;
+    margin-top: 40px;
+}
+
+
+
+
+
+@media screen and (max-width:849px) {
+    .forecastSection {
+
+        margin: 40px auto 0;
+        width: 100%;
+    }
+}
+
+@media screen and (min-width:850px) and (max-width:959px) {
+
+    .forecastSection {
+        display: flex;
+        margin: 40px auto 0;
+        flex-wrap: wrap;
+    }
 
 }
 
+
+
+@media screen and (min-width:960px) {
+    .forecastSection {
+        display: flex;
+        margin: 40px auto 0;
+        width: 1200px;
+    }
+}
+
+
+
+@media screen and (max-width:849px) {
+
+    .dayCard {
+        background-color: azure;
+        box-shadow: #787878 1px 1px 4px;
+        border-radius: 4px;
+        padding: 0 40px 40px;
+        box-sizing: border-box;
+        overflow: hidden;
+        margin: 40px 20px 0;
+    }
+}
+
+@media screen and (min-width:850px) and (max-width:959px) {
+
+    .dayCard {
+        width: 45%;
+        background-color: azure;
+        box-shadow: #787878 1px 1px 4px;
+        border-radius: 4px;
+        padding: 0 40px 40px;
+        box-sizing: border-box;
+        overflow: hidden;
+        margin: 40px 20px 0;
+    }
+}
+
+@media screen and (min-width:960px) {
+    .dayCard {
+        width: 300px;
+        background-color: azure;
+        box-shadow: #787878 1px 1px 4px;
+        border-radius: 4px;
+        padding: 0 40px 40px;
+    }
+}
+
+@media screen and (min-width:960px) {
+    .dayCard+.dayCard {
+        margin-left: 40px;
+    }
+}
+
+.dayHeading {
+    margin-top: 40px;
+    font-size: 36px;
+    text-align: center;
+}
 
 .icon {
     max-width: 160px;
     max-height: 160px;
     border-radius: 50%;
-    background: red;
+    background: white;
     display: block;
-    margin: 0 auto;
+    margin: 20px auto 0;
 }
 
 .icon img {
@@ -30,21 +114,26 @@ p {
 
 .description {
     text-align: center;
-    font-weight: bold;
     font-size: 30px;
+    margin-top: 20px;
+    font-weight: bold;
 }
 
 
 .tempGroup {
     margin: 40px auto 0;
-    display: table;
+    display: flex;
+    justify-content: space-between;
 }
 
+.tempChild {
+    text-align: center;
+}
 
 .currentPosition {
     text-align: center;
     font-weight: bold;
-    font-size: 30px;
+    font-size: 20px;
     margin-top: 40px;
     word-wrap: break-word;
 }

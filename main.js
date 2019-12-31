@@ -171,30 +171,46 @@ const getPosition = () => {
 
 
                     //気温
-                    const tempAverage = document.querySelector("#js-tempAverage");
-                    tempAverage.innerText = `気温：${JSON.stringify(data.list[0].main.temp)}℃`;
+                    const tempAverageGroup = document.querySelectorAll(".js-tempAverage");
+                    tempAverageGroup.forEach((value, index) => {
+                        tempAverageGroup[index].innerText =
+                            `気温
+                        ${JSON.stringify(data.list[index].main.temp)}℃`;
+                    });
 
                     //最高気温
-                    const tempMax = document.querySelector("#js-tempMax");
-                    tempMax.innerText = `最高気温：${JSON.stringify(data.list[0].main.temp_max)}℃`;
+                    const tempMaxGroup = document.querySelectorAll(".js-tempMax");
+                    tempMaxGroup.forEach((value, index) => {
+                        tempMaxGroup[index].innerText =
+                            `最高気温
+                        ${JSON.stringify(data.list[index].main.temp_max)}℃`;
+                    });
 
                     //最低気温
-                    const tempMin = document.querySelector("#js-tempMin");
-                    tempMin.innerText = `最低気温：${JSON.stringify(data.list[0].main.temp_min)}℃`;
+                    const tempMinGroup = document.querySelectorAll(".js-tempMin");
+                    tempMinGroup.forEach((value, index) => {
+                        tempMinGroup[index].innerText =
+                            `最低気温
+                        ${JSON.stringify(data.list[index].main.temp_min)}℃`;
+                    });
 
                     //アイコン
-                    const weatherIcon = document.querySelector("#js-icon");
-                    console.log(weatherIcon);
-                    const weatherIconPic = document.createElement("img");
-                    weatherIconPic.src = `img/${JSON.stringify(data.list[0].weather[0].icon).replace(/\"/g, "")}.svg`;
-                    console.log(weatherIconPic);
-                    weatherIcon.appendChild(weatherIconPic);
+                    const weatherIconGroup = document.querySelectorAll(".js-icon");
+                    weatherIconGroup.forEach((value, index) => {
+                        const weatherIconPic = document.createElement("img");
+                        weatherIconPic.src = `img/${JSON.stringify(data.list[8*index].weather[0].icon).replace(/\"/g, "")}.svg`;
+                        weatherIconPic.alt = data.list[8 * index].weather[0].main;
+                        console.log(weatherIconPic.alt);
+                        weatherIconGroup[index].appendChild(weatherIconPic);
+                    });
 
 
 
                     //説明
-                    const description = document.querySelector("#js-description");
-                    description.innerText = JSON.stringify(data.list[0].weather[0].description);
+                    const descriptionGroup = document.querySelectorAll(".js-description");
+                    descriptionGroup.forEach((value, index) => {
+                        descriptionGroup[index].innerText = JSON.stringify(data.list[8 * index].weather[0].description);
+                    })
 
 
                     //現在地
