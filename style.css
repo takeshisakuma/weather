@@ -16,11 +16,17 @@ p {
 
 
 .icon {
-    width: 100%;
-    text-align: center;
+    max-width: 160px;
+    max-height: 160px;
+    border-radius: 50%;
+    background: red;
+    display: block;
+    margin: 0 auto;
 }
 
-.icon img {}
+.icon img {
+    width: 100%;
+}
 
 .description {
     text-align: center;
@@ -34,8 +40,16 @@ p {
     display: table;
 }
 
-.embedMap {
+
+.currentPosition {
+    text-align: center;
+    font-weight: bold;
+    font-size: 30px;
     margin-top: 40px;
+}
+
+.embedMap {
+    margin-top: 20px;
     width: 100%;
     height: 200px;
     border: none;
