@@ -11,16 +11,27 @@ h2 {
     padding: 0;
 }
 
-.mainHeadig {
-    font-size: 40px;
-    text-align: center;
-    margin-top: 40px;
-}
 
 
 
 
-@media screen and (max-width:1259px) {
+
+
+
+/*     スマホ         */
+
+@media screen and (max-width:559px) {
+
+    .mainHeadig {
+        font-size: 40px;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+
+
+
+
     .forecastSection {
         overflow: auto;
         white-space: nowrap;
@@ -51,87 +62,314 @@ h2 {
         color: white;
         top: 0px;
     }
+
+
+
+
+
+
+
+    .dayCard {
+        margin-top: 20px;
+        flex-shrink: 0;
+        width: 200px;
+        background-color: azure;
+        box-shadow: #787878 1px 1px 4px;
+        border-radius: 4px;
+        padding: 0 40px 40px;
+    }
+
+
+
+    .dayCard+.dayCard {
+        margin-left: 40px;
+    }
+
+
+    .dayHeading {
+        margin-top: 20px;
+        font-size: 30px;
+        text-align: center;
+    }
+
+    .icon {
+        max-width: 100px;
+        max-height: 100px;
+        border-radius: 50%;
+        background: white;
+        display: block;
+        margin: 10px auto 0;
+        box-shadow: 0px 0px 4px #999;
+    }
+
+    .icon img {
+        width: 100%;
+    }
+
+    .description {
+        text-align: center;
+        font-size: 20px;
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+
+    .tempGroup {
+        margin: 20px auto 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .tempChild {
+        text-align: center;
+        font-size: 12px;
+    }
+
+    .currentPosition {
+        text-align: center;
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 40px;
+        word-wrap: break-word;
+    }
+
+    .embedMap {
+        margin-top: 20px;
+        width: 100%;
+        height: 200px;
+        border: none;
+    }
+
+
 }
 
 
+
+/*     タブ          */
+
+@media screen and (min-width:560px) and (max-width:1259px) {
+
+    .mainHeadig {
+        font-size: 40px;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+
+
+
+
+    .forecastSection {
+        overflow: auto;
+        white-space: nowrap;
+        display: flex;
+        margin: 40px auto 0;
+        padding: 0 20px 20px;
+        width: 100%;
+        box-sizing: border-box;
+        background-color: dimgrey;
+        position: relative;
+    }
+
+    .forecastSection::-webkit-scrollbar {
+        height: 5px;
+    }
+
+    .forecastSection::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    .forecastSection::-webkit-scrollbar-thumb {
+        background: #bcbcbc;
+    }
+
+    .forecastSection::before {
+        position: absolute;
+        content: "scroll>>";
+        color: white;
+        top: 0px;
+    }
+
+
+
+
+
+
+
+    .dayCard {
+        margin-top: 20px;
+        flex-shrink: 0;
+        width: 300px;
+        background-color: azure;
+        box-shadow: #787878 1px 1px 4px;
+        border-radius: 4px;
+        padding: 0 40px 40px;
+    }
+
+
+
+    .dayCard+.dayCard {
+        margin-left: 40px;
+    }
+
+
+    .dayHeading {
+        margin-top: 40px;
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .icon {
+        max-width: 160px;
+        max-height: 160px;
+        border-radius: 50%;
+        background: white;
+        display: block;
+        margin: 20px auto 0;
+        box-shadow: 0px 0px 4px #999;
+    }
+
+    .icon img {
+        width: 100%;
+    }
+
+    .description {
+        text-align: center;
+        font-size: 30px;
+        margin-top: 20px;
+        font-weight: bold;
+    }
+
+
+    .tempGroup {
+        margin: 40px auto 0;
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .tempChild {
+        text-align: center;
+    }
+
+    .currentPosition {
+        text-align: center;
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 40px;
+        word-wrap: break-word;
+    }
+
+    .embedMap {
+        margin-top: 20px;
+        width: 100%;
+        height: 200px;
+        border: none;
+    }
+
+
+}
+
+
+
+
+/* PC */
+
+
+
+
+
 @media screen and (min-width:1260px) {
+
+
+    .mainHeadig {
+        font-size: 40px;
+        text-align: center;
+        margin-top: 40px;
+    }
+
+
+
+
+
+
     .forecastSection {
         display: flex;
         margin: 40px auto 0;
         width: 1250px;
     }
-}
 
 
 
 
 
-.dayCard {
-    margin-top: 20px;
-    flex-shrink: 0;
-    width: 300px;
-    background-color: azure;
-    box-shadow: #787878 1px 1px 4px;
-    border-radius: 4px;
-    padding: 0 40px 40px;
-}
+
+    .dayCard {
+        margin-top: 20px;
+        flex-shrink: 0;
+        width: 300px;
+        background-color: azure;
+        box-shadow: #787878 1px 1px 4px;
+        border-radius: 4px;
+        padding: 0 40px 40px;
+    }
 
 
 
-.dayCard+.dayCard {
-    margin-left: 40px;
-}
+    .dayCard+.dayCard {
+        margin-left: 40px;
+    }
 
 
-.dayHeading {
-    margin-top: 40px;
-    font-size: 36px;
-    text-align: center;
-}
+    .dayHeading {
+        margin-top: 40px;
+        font-size: 36px;
+        text-align: center;
+    }
 
-.icon {
-    max-width: 160px;
-    max-height: 160px;
-    border-radius: 50%;
-    background: white;
-    display: block;
-    margin: 20px auto 0;
-    box-shadow: 0px 0px 4px #999;
-}
+    .icon {
+        max-width: 160px;
+        max-height: 160px;
+        border-radius: 50%;
+        background: white;
+        display: block;
+        margin: 20px auto 0;
+        box-shadow: 0px 0px 4px #999;
+    }
 
-.icon img {
-    width: 100%;
-}
+    .icon img {
+        width: 100%;
+    }
 
-.description {
-    text-align: center;
-    font-size: 30px;
-    margin-top: 20px;
-    font-weight: bold;
-}
+    .description {
+        text-align: center;
+        font-size: 30px;
+        margin-top: 20px;
+        font-weight: bold;
+    }
 
 
-.tempGroup {
-    margin: 40px auto 0;
-    display: flex;
-    justify-content: space-between;
-}
+    .tempGroup {
+        margin: 40px auto 0;
+        display: flex;
+        justify-content: space-between;
+    }
 
-.tempChild {
-    text-align: center;
-}
+    .tempChild {
+        text-align: center;
+    }
 
-.currentPosition {
-    text-align: center;
-    font-weight: bold;
-    font-size: 20px;
-    margin-top: 40px;
-    word-wrap: break-word;
-}
+    .currentPosition {
+        text-align: center;
+        font-weight: bold;
+        font-size: 20px;
+        margin-top: 40px;
+        word-wrap: break-word;
+    }
 
-.embedMap {
-    margin-top: 20px;
-    width: 100%;
-    height: 200px;
-    border: none;
+    .embedMap {
+        margin-top: 20px;
+        width: 100%;
+        height: 200px;
+        border: none;
+    }
 }
