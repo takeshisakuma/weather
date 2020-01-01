@@ -25,7 +25,7 @@ h2 {
     .mainHeadig {
         font-size: 40px;
         text-align: center;
-        margin-top: 40px;
+        margin-top: 20px;
     }
 
 
@@ -36,7 +36,7 @@ h2 {
         overflow: auto;
         white-space: nowrap;
         display: flex;
-        margin: 40px auto 0;
+        margin: 20px auto 0;
         padding: 0 20px 20px;
         width: 100%;
         box-sizing: border-box;
@@ -56,12 +56,7 @@ h2 {
         background: #bcbcbc;
     }
 
-    .forecastSection::before {
-        position: absolute;
-        content: "scroll>>";
-        color: white;
-        top: 0px;
-    }
+
 
 
 
@@ -70,16 +65,36 @@ h2 {
 
 
     .dayCard {
-        margin-top: 20px;
+        margin-top: 40px;
         flex-shrink: 0;
         width: 200px;
         background-color: azure;
         box-shadow: #787878 1px 1px 4px;
         border-radius: 4px;
         padding: 0 40px 40px;
+        position: relative;
+    }
+
+    .dayCard:first-child::before {
+
+        position: absolute;
+        content: "scroll>>";
+        color: white;
+        top: -30px;
+        left: 0px;
+
     }
 
 
+
+
+    .dayCard:last-child::before {
+        position: absolute;
+        content: "<<scroll";
+        color: white;
+        top: -30px;
+        right: 0px;
+    }
 
     .dayCard+.dayCard {
         margin-left: 40px;
@@ -152,7 +167,7 @@ h2 {
     .mainHeadig {
         font-size: 40px;
         text-align: center;
-        margin-top: 40px;
+        margin-top: 20px;
     }
 
 
@@ -163,7 +178,7 @@ h2 {
         overflow: auto;
         white-space: nowrap;
         display: flex;
-        margin: 40px auto 0;
+        margin: 20px auto 0;
         padding: 0 20px 20px;
         width: 100%;
         box-sizing: border-box;
@@ -183,12 +198,6 @@ h2 {
         background: #bcbcbc;
     }
 
-    .forecastSection::before {
-        position: absolute;
-        content: "scroll>>";
-        color: white;
-        top: 0px;
-    }
 
 
 
@@ -197,16 +206,31 @@ h2 {
 
 
     .dayCard {
-        margin-top: 20px;
+        margin-top: 40px;
         flex-shrink: 0;
         width: 300px;
         background-color: azure;
         box-shadow: #787878 1px 1px 4px;
         border-radius: 4px;
         padding: 0 40px 40px;
+        position: relative;
     }
 
+    .dayCard:first-child::before {
+        position: absolute;
+        content: "scroll>>";
+        color: white;
+        top: -30px;
+        left: 0px;
+    }
 
+    .dayCard:last-child::before {
+        position: absolute;
+        content: "<<scroll";
+        color: white;
+        top: -30px;
+        right: 0px;
+    }
 
     .dayCard+.dayCard {
         margin-left: 40px;
