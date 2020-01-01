@@ -17,93 +17,96 @@
       <h1 class="mainHeadig">Weather App</h1>
     </div>
   </header>
+
   <main>
+
     <section class="forecastSection">
+
       <div class="dayCardGroup">
+
         <article class="dayCard">
-          <h2 class="dayHeading">今日の天気</h2>
+          <h2 class="dayHeading">現在の天気</h2>
           <p class="icon js-icon">
             <img src="img/00.svg">
           </p>
           <p class="description js-description">　</p>
 
-          <div class="tempGroup">
-            <p class="tempChild">最低気温<br>
-              <span class="js-tempMin tempNumber">??</span>
-              ℃
-            </p>
+          <div class="dataGroup">
             <p class="tempChild">気温<br>
-              <span class="js-tempAverage tempNumber">??</span>
+              <span class="js-temp tempNumber">??</span>
               ℃
             </p>
-            <p class="tempChild">最高気温<br>
-              <span class="js-tempMax tempNumber">??</span>
-              ℃
+            <p class="tempChild">湿度<br>
+              <span class="js-humidity tempNumber">??</span>
+              %
             </p>
-
-
+            <p class="tempChild">気圧<br>
+              <span class="js-pressure tempNumber">??</span>
+              hPa
+            </p>
           </div>
         </article>
 
         <article class="dayCard">
-          <h2 class="dayHeading">明日の天気</h2>
+          <h2 class="dayHeading">24時間後の天気</h2>
           <p class="icon js-icon"><img src="img/00.svg"></p>
           <p class="js-description description">　</p>
 
-          <div class="tempGroup">
-            <p class="tempChild">最低気温<br>
-              <span class="js-tempMin tempNumber">??</span>
-              ℃
-            </p>
+          <div class="dataGroup">
             <p class="tempChild">気温<br>
-              <span class="js-tempAverage tempNumber">??</span>
+              <span class="js-temp tempNumber">??</span>
               ℃
             </p>
-            <p class="tempChild">最高気温<br>
-              <span class="js-tempMax tempNumber">??</span>
-              ℃
+            <p class="tempChild">湿度<br>
+              <span class="js-humidity tempNumber">??</span>
+              %
             </p>
-
+            <p class="tempChild">気圧<br>
+              <span class="js-pressure tempNumber">??</span>
+              hpa
+            </p>
           </div>
         </article>
 
         <article class="dayCard">
-          <h2 class="dayHeading">明後日の天気</h2>
+          <h2 class="dayHeading">48時間後の天気</h2>
           <p class="icon js-icon"><img src="img/00.svg"></p>
           <p class="description js-description">　</p>
-
-          <div class="tempGroup">
-            <p class="tempChild">最低気温<br>
-              <span class="js-tempMin tempNumber">??</span>
-              ℃
-            </p>
+          <div class="dataGroup">
             <p class="tempChild">気温<br>
-              <span class="js-tempAverage tempNumber">??</span>
+              <span class="js-temp tempNumber">??</span>
               ℃
             </p>
-            <p class="tempChild">最高気温<br>
-              <span class="js-tempMax tempNumber">??</span>
-              ℃
-            </p>
+            <p class="tempChild">湿度<br>
+              <span class="js-humidity tempNumber">??</span>
+              %
+              <p class="tempChild">気圧<br>
+                <span class="js-pressure tempNumber">??</span>
+                hPa
+              </p>
           </div>
         </article>
+
       </div>
+
     </section>
+
     <section class="mapSection">
       <div class="map__content">
         <p id="js-currentPosition" class="currentPosition"></p>
-
         <iframe id="js-embedMap" class="embedMap"></iframe>
       </div>
     </section>
+
   </main>
+
   <footer class="footerArea">
+
     <div class="footer__content">
       <address class="footer__rights">Weather App</address>
-
     </div>
 
-
   </footer>
+
 </body>
 </html>

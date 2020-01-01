@@ -1,7 +1,4 @@
-body {
-  font-family: "M PLUS 1p";
-}
-
+/* reset */
 body,
 div,
 p,
@@ -11,45 +8,30 @@ h2 {
   padding: 0;
 }
 
+/* common */
+
+body {
+  font-family: "M PLUS 1p";
+}
 
 
-
-
-
-
-
-/*     スマホ         */
+/* phone */
 
 @media screen and (max-width:559px) {
-
 
   .headerArea {
     background-color: #333;
     overflow: hidden;
     padding-bottom: 20px;
-
-
   }
 
   .mainHeadig {
     font-size: 20px;
-
     margin: 20px 0 0 20px;
     color: #fff;
   }
 
-
-
-
-
-  .forecastSection {}
-
-
-
-
-
   .dayCardGroup {
-
     overflow: auto;
     white-space: nowrap;
     display: flex;
@@ -59,8 +41,6 @@ h2 {
     box-sizing: border-box;
     background-color: #e5e5e5;
     position: relative;
-
-
   }
 
   .dayCardGroup::-webkit-scrollbar {
@@ -74,8 +54,6 @@ h2 {
   .dayCardGroup::-webkit-scrollbar-thumb {
     background: #bcbcbc;
   }
-
-
 
   .dayCard {
     margin-top: 40px;
@@ -99,9 +77,6 @@ h2 {
     left: 0px;
   }
 
-
-
-
   .dayCard:last-child::before {
     position: absolute;
     content: "<<scroll";
@@ -114,7 +89,6 @@ h2 {
   .dayCard+.dayCard {
     margin-left: 40px;
   }
-
 
   .dayHeading {
     margin-top: 20px;
@@ -143,8 +117,7 @@ h2 {
     font-weight: bold;
   }
 
-
-  .tempGroup {
+  .dataGroup {
     margin: 10px auto 0;
     display: flex;
     justify-content: space-between;
@@ -156,22 +129,10 @@ h2 {
     font-size: 12px;
   }
 
-
-
-
   .tempNumber {
-    font-weight: bold, italic;
+    font-weight: bold;
     font-size: 18px;
   }
-
-  .tempChild:first-child .tempNumber {
-    color: #0652DD;
-  }
-
-  .tempChild:last-child .tempNumber {
-    color: #EA2027;
-  }
-
 
   .mapSection {
     overflow: hidden;
@@ -181,13 +142,13 @@ h2 {
   .currentPosition {
     text-align: center;
     font-weight: bold;
-    font-size: 26px;
-    margin-top: 10px;
+    font-size: 20px;
+    margin-top: 20px;
     word-wrap: break-word;
   }
 
   .embedMap {
-    margin-top: 20px;
+    margin-top: 10px;
     width: 100%;
     height: 200px;
     border: none;
@@ -210,36 +171,21 @@ h2 {
 }
 
 
-
-/*     タブ          */
+/* tablet */
 
 @media screen and (min-width:560px) and (max-width:1259px) {
-
 
   .headerArea {
     background-color: #333;
     overflow: hidden;
     padding-bottom: 20px;
-
-
   }
 
   .mainHeadig {
     font-size: 20px;
-
     margin: 20px 0 0 20px;
     color: #fff;
   }
-
-
-
-
-
-  .forecastSection {}
-
-
-
-
 
   .dayCardGroup {
     overflow: auto;
@@ -250,7 +196,6 @@ h2 {
     width: 100%;
     box-sizing: border-box;
     background-color: #e5e5e5;
-    ;
     position: relative;
   }
 
@@ -265,7 +210,6 @@ h2 {
   .dayCardGroup::-webkit-scrollbar-thumb {
     background: #bcbcbc;
   }
-
 
   .dayCard {
     margin-top: 40px;
@@ -302,7 +246,6 @@ h2 {
     margin-left: 40px;
   }
 
-
   .dayHeading {
     margin-top: 40px;
     font-size: 36px;
@@ -330,8 +273,7 @@ h2 {
     font-weight: bold;
   }
 
-
-  .tempGroup {
+  .dataGroup {
     margin: 20px auto 0;
     display: flex;
     justify-content: space-between;
@@ -342,20 +284,9 @@ h2 {
     font-weight: bold;
   }
 
-
-
-
   .tempNumber {
-    font-weight: bold, italic;
+    font-weight: bold;
     font-size: 24px;
-  }
-
-  .tempChild:first-child .tempNumber {
-    color: #0652DD;
-  }
-
-  .tempChild:last-child .tempNumber {
-    color: #EA2027;
   }
 
   .mapSection {
@@ -395,17 +326,9 @@ h2 {
 }
 
 
-
-
 /* PC */
 
-
-
-
-
 @media screen and (min-width:1260px) {
-
-
 
   .headerArea {
     background-color: #333;
@@ -424,25 +347,16 @@ h2 {
     color: #fff;
   }
 
-
-
-
-
-
   .forecastSection {
     background-color: #e5e5e5;
     padding-bottom: 40px;
   }
 
-
-
   .dayCardGroup {
     display: flex;
     margin: 0px auto 0;
     width: 1250px;
-
   }
-
 
   .dayCard {
     margin-top: 40px;
@@ -456,12 +370,9 @@ h2 {
     outline-offset: -10px;
   }
 
-
-
   .dayCard+.dayCard {
     margin-left: 40px;
   }
-
 
   .dayHeading {
     margin-top: 40px;
@@ -490,8 +401,7 @@ h2 {
     font-weight: bold;
   }
 
-
-  .tempGroup {
+  .dataGroup {
     margin: 20px auto 0;
     display: flex;
     justify-content: space-between;
@@ -502,20 +412,9 @@ h2 {
     font-weight: bold;
   }
 
-
-
-
   .tempNumber {
-    font-weight: bold, italic;
+    font-weight: bold;
     font-size: 24px;
-  }
-
-  .tempChild:first-child .tempNumber {
-    color: #0652DD;
-  }
-
-  .tempChild:last-child .tempNumber {
-    color: #EA2027;
   }
 
   .mapSection {
@@ -528,7 +427,6 @@ h2 {
     width: 1250px;
     margin: 0 auto;
   }
-
 
   .currentPosition {
     text-align: center;
@@ -544,14 +442,6 @@ h2 {
     height: 200px;
     border: none;
   }
-
-
-
-
-
-
-
-
 
   .footerArea {
     background-color: #333;
