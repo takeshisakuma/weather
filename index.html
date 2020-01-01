@@ -1,79 +1,109 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Weather App</title>
-    <meta name="description" content="openweathermapのAPIを利用した天気予報アプリです。" />
-    <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Weather App</title>
+  <meta name="description" content="openweathermapのAPIを利用した天気予報アプリです。" />
+  <link href="https://fonts.googleapis.com/css?family=M+PLUS+1p" rel="stylesheet">
 
-    <link rel="stylesheet" href="style.css">
-    <script src="main.js" defer></script>
+  <link rel="stylesheet" href="style.css">
+  <script src="main.js" defer></script>
 </head>
 <body>
-    <header class="headerArea">
-        <div class="header__content">
-            <h1 class="mainHeadig">Weather App</h1>
-        </div>
-    </header>
-    <main>
-        <section class="forecastSection">
-            <div class="dayCardGroup">
-                <article class="dayCard">
-                    <h2 class="dayHeading">今日の天気</h2>
-                    <p class="icon js-icon"></p>
-                    <p class="description js-description"></p>
+  <header class="headerArea">
+    <div class="header__content">
+      <h1 class="mainHeadig">Weather App</h1>
+    </div>
+  </header>
+  <main>
+    <section class="forecastSection">
+      <div class="dayCardGroup">
+        <article class="dayCard">
+          <h2 class="dayHeading">今日の天気</h2>
+          <p class="icon js-icon">
+            <img src="img/00.svg">
+          </p>
+          <p class="description js-description">　</p>
 
-                    <div class="tempGroup">
-                        <p class="js-tempMin tempChild"></p>
-                        <p class="js-tempAverage tempChild"></p>
-                        <p class="js-tempMax tempChild"></p>
-
-                    </div>
-                </article>
-
-                <article class="dayCard">
-                    <h2 class="dayHeading">明日の天気</h2>
-                    <p class="icon js-icon"></p>
-                    <p class="js-description description"></p>
-
-                    <div class="tempGroup">
-                        <p class="js-tempMin tempChild"></p>
-                        <p class="js-tempAverage tempChild"></p>
-                        <p class="js-tempMax tempChild"></p>
-
-                    </div>
-                </article>
-
-                <article class="dayCard">
-                    <h2 class="dayHeading">明後日の天気</h2>
-                    <p class="icon js-icon"></p>
-                    <p class="description js-description"></p>
-
-                    <div class="tempGroup">
-                        <p class="js-tempMin tempChild"></p>
-                        <p class="js-tempAverage tempChild"></p>
-                        <p class="js-tempMax tempChild"></p>
-                    </div>
-                </article>
-            </div>
-        </section>
-        <section class="mapSection">
-            <div class="map__content">
-                <p id="js-currentPosition" class="currentPosition"></p>
-
-                <iframe id="js-embedMap" class="embedMap"></iframe>
-            </div>
-        </section>
-    </main>
-    <footer class="footerArea">
-        <div class="footer__content">
-            <address class="footer__rights">Weather App</address>
-
-        </div>
+          <div class="tempGroup">
+            <p class="tempChild">最低気温<br>
+              <span class="js-tempMin tempNumber">??</span>
+              ℃
+            </p>
+            <p class="tempChild">気温<br>
+              <span class="js-tempAverage tempNumber">??</span>
+              ℃
+            </p>
+            <p class="tempChild">最高気温<br>
+              <span class="js-tempMax tempNumber">??</span>
+              ℃
+            </p>
 
 
-    </footer>
+          </div>
+        </article>
+
+        <article class="dayCard">
+          <h2 class="dayHeading">明日の天気</h2>
+          <p class="icon js-icon"><img src="img/00.svg"></p>
+          <p class="js-description description">　</p>
+
+          <div class="tempGroup">
+            <p class="tempChild">最低気温<br>
+              <span class="js-tempMin tempNumber">??</span>
+              ℃
+            </p>
+            <p class="tempChild">気温<br>
+              <span class="js-tempAverage tempNumber">??</span>
+              ℃
+            </p>
+            <p class="tempChild">最高気温<br>
+              <span class="js-tempMax tempNumber">??</span>
+              ℃
+            </p>
+
+          </div>
+        </article>
+
+        <article class="dayCard">
+          <h2 class="dayHeading">明後日の天気</h2>
+          <p class="icon js-icon"><img src="img/00.svg"></p>
+          <p class="description js-description">　</p>
+
+          <div class="tempGroup">
+            <p class="tempChild">最低気温<br>
+              <span class="js-tempMin tempNumber">??</span>
+              ℃
+            </p>
+            <p class="tempChild">気温<br>
+              <span class="js-tempAverage tempNumber">??</span>
+              ℃
+            </p>
+            <p class="tempChild">最高気温<br>
+              <span class="js-tempMax tempNumber">??</span>
+              ℃
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+    <section class="mapSection">
+      <div class="map__content">
+        <p id="js-currentPosition" class="currentPosition"></p>
+
+        <iframe id="js-embedMap" class="embedMap"></iframe>
+      </div>
+    </section>
+  </main>
+  <footer class="footerArea">
+    <div class="footer__content">
+      <address class="footer__rights">Weather App</address>
+
+    </div>
+
+
+  </footer>
 </body>
 </html>
