@@ -12,50 +12,68 @@
     <script src="main.js" defer></script>
 </head>
 <body>
-    <h1 class="mainHeadig">Weather App</h1>
+    <header class="headerArea">
+        <div class="header__content">
+            <h1 class="mainHeadig">Weather App</h1>
+        </div>
+    </header>
+    <main>
+        <section class="forecastSection">
+            <div class="dayCardGroup">
+                <article class="dayCard">
+                    <h2 class="dayHeading">今日の天気</h2>
+                    <p class="icon js-icon"></p>
+                    <p class="description js-description"></p>
 
-    <section class="forecastSection">
-        <article class="dayCard">
-            <h2 class="dayHeading">今日の天気</h2>
-            <p class="icon js-icon"></p>
-            <p class="description js-description"></p>
+                    <div class="tempGroup">
+                        <p class="js-tempMin tempChild"></p>
+                        <p class="js-tempAverage tempChild"></p>
+                        <p class="js-tempMax tempChild"></p>
 
-            <div class="tempGroup">
-                <p class="js-tempMin tempChild"></p>
-                <p class="js-tempAverage tempChild"></p>
-                <p class="js-tempMax tempChild"></p>
+                    </div>
+                </article>
 
+                <article class="dayCard">
+                    <h2 class="dayHeading">明日の天気</h2>
+                    <p class="icon js-icon"></p>
+                    <p class="js-description description"></p>
+
+                    <div class="tempGroup">
+                        <p class="js-tempMin tempChild"></p>
+                        <p class="js-tempAverage tempChild"></p>
+                        <p class="js-tempMax tempChild"></p>
+
+                    </div>
+                </article>
+
+                <article class="dayCard">
+                    <h2 class="dayHeading">明後日の天気</h2>
+                    <p class="icon js-icon"></p>
+                    <p class="description js-description"></p>
+
+                    <div class="tempGroup">
+                        <p class="js-tempMin tempChild"></p>
+                        <p class="js-tempAverage tempChild"></p>
+                        <p class="js-tempMax tempChild"></p>
+                    </div>
+                </article>
             </div>
-        </article>
+        </section>
+        <section class="mapSection">
+            <div class="map__content">
+                <p id="js-currentPosition" class="currentPosition"></p>
 
-        <article class="dayCard">
-            <h2 class="dayHeading">明日の天気</h2>
-            <p class="icon js-icon"></p>
-            <p class="js-description description"></p>
-
-            <div class="tempGroup">
-                <p class="js-tempMin tempChild"></p>
-                <p class="js-tempAverage tempChild"></p>
-                <p class="js-tempMax tempChild"></p>
-
+                <iframe id="js-embedMap" class="embedMap"></iframe>
             </div>
-        </article>
+        </section>
+    </main>
+    <footer class="footerArea">
+        <div class="footer__content">
+            <address class="footer__rights">Weather App</address>
 
-        <article class="dayCard">
-            <h2 class="dayHeading">明後日の天気</h2>
-            <p class="icon js-icon"></p>
-            <p class="description js-description"></p>
+        </div>
 
-            <div class="tempGroup">
-                <p class="js-tempMin tempChild"></p>
-                <p class="js-tempAverage tempChild"></p>
-                <p class="js-tempMax tempChild"></p>
-            </div>
-        </article>
-    </section>
 
-    <p id="js-currentPosition" class="currentPosition"></p>
-
-    <iframe id="js-embedMap" class="embedMap"></iframe>
+    </footer>
 </body>
 </html>
