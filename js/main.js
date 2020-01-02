@@ -1,3 +1,12 @@
+const loaderLayer = document.getElementById("js-loadingLayer");
+const loadedTransiton = () => {
+  loaderLayer.classList.remove("active");
+}
+window.addEventListener("load", loadedTransiton);
+
+
+
+
 //Geolocation api使用可能の場合
 if (navigator.geolocation) {
   console.log("この端末は現在位置を取得することができます");
