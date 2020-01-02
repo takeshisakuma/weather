@@ -12,6 +12,13 @@ h2 {
 
 body {
   font-family: "M PLUS 1p";
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.mainArea {
+  flex: 1;
 }
 
 
