@@ -1,40 +1,140 @@
-const loaderLayer = document.getElementById("js-loadingLayer");
-const loadedTransiton = () => {
-  loaderLayer.classList.remove("active");
-}
-window.addEventListener("load", loadedTransiton);
-
-
-
-
-//Geolocation api使用可能の場合
-if (navigator.geolocation) {
-  console.log("この端末は現在位置を取得することができます");
-}
-
-//Geolocation API使用不可能の場合
-else {
-  alert(`この端末は現在位置を取得できません。
-    位置情報を使用するには、
-
-    iOSは「一般」→「プライバシー」→「位置情報サービス」で位置情報サービスをオンにしてください。
-
-    Androidは「設定」→「位置情報」で位置情報をオンにしてください。`);
-}
-
-
-
-
-
 const myAppID = "156cfe5a2b6fbbd3c831f6386d4282aa";
 const myUnits = "metric";
 const myLang = "ja";
-let currentLat;
-let currentLon;
+const apiBase = "https://api.openweathermap.org/data/2.5";
+
+//2枚目以降のカードに表示する予報(何時間後か)
+const forecastHours = [24, 48];
+
+//前回の取得結果の保存先
+const storageKey = "weather-lastResult";
+
+const loaderLayer = document.getElementById("js-loadingLayer");
+const currentPosition = document.getElementById("js-currentPosition");
+const embedMap = document.getElementById("js-embedMap");
 
 
+const hideLoading = () => {
+  loaderLayer.classList.remove("active");
+};
+
+//画面内にメッセージを表示
+const showMessage = (message) => {
+  currentPosition.innerText = message;
+  hideLoading();
+};
 
 
+const fetchJSON = async (url) => {
+  const res = await fetch(url);
+  if (!res.ok) {
+    throw new Error(`${res.status} ${res.statusText}`);
+  }
+  return res.json();
+};
+
+//指定時間後に最も近い予報を取得
+const pickForecast = (list, hours) => {
+  const target = Date.now() / 1000 + hours * 60 * 60;
+  return list.reduce((nearest, item) =>
+    Math.abs(item.dt - target) < Math.abs(nearest.dt - target) ? item : nearest
+  );
+};
+
+const renderCard = (card, data) => {
+  const weather = data.weather[0];
+
+  //気温
+  card.querySelector(".js-temp").innerText = Math.round(data.main.temp);
+
+  //湿度
+  card.querySelector(".js-humidity").innerText = data.main.humidity;
+
+  //気圧
+  card.querySelector(".js-pressure").innerText = data.main.pressure;
+
+  //アイコン
+  const iconImg = card.querySelector(".js-icon img");
+  iconImg.src = `img/${weather.icon}.svg`;
+  iconImg.alt = weather.description;
+
+  //説明
+  card.querySelector(".js-description").innerText = weather.description;
+};
+
+const renderCards = (dataGroup) => {
+  document.querySelectorAll(".js-dayCard").forEach((card, index) => {
+    renderCard(card, dataGroup[index]);
+  });
+};
+
+
+//取得結果を保存(オフライン時の表示用)
+const saveResult = (result) => {
+  try {
+    localStorage.setItem(storageKey, JSON.stringify(result));
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+const loadResult = () => {
+  try {
+    return JSON.parse(localStorage.getItem(storageKey));
+  } catch (err) {
+    return null;
+  }
+};
+
+//前回の取得結果があれば表示、なければメッセージのみ表示
+const showLastResult = (message) => {
+  const result = loadResult();
+
+  if (!result) {
+    showMessage(message);
+    return;
+  }
+
+  const savedTime = new Date(result.time).toLocaleString("ja-JP", {
+    month: "numeric",
+    day: "numeric",
+    hour: "2-digit",
+    minute: "2-digit"
+  });
+
+  renderCards(result.dataGroup);
+  showMessage(`${message}\n前回(${savedTime})に取得した${result.name}の天気を表示しています。`);
+};
+
+
+const getWeather = async (lat, lon) => {
+  const query = `lat=${lat}&lon=${lon}&appid=${myAppID}&units=${myUnits}&lang=${myLang}`;
+
+  const [current, forecast] = await Promise.all([
+    fetchJSON(`${apiBase}/weather?${query}`),
+    fetchJSON(`${apiBase}/forecast?${query}`)
+  ]);
+
+  const dataGroup = [
+    current,
+    ...forecastHours.map(hours => pickForecast(forecast.list, hours))
+  ];
+
+  renderCards(dataGroup);
+
+  //現在地
+  currentPosition.innerText = "現在地：" + current.name;
+
+  //地図
+  embedMap.src = `https://maps.google.co.jp/maps?output=embed&q=${lat},${lon}`;
+  embedMap.hidden = false;
+
+  saveResult({
+    dataGroup,
+    name: current.name,
+    time: Date.now()
+  });
+};
 
 
 const getPosition = () => {
@@ -43,108 +143,52 @@ const getPosition = () => {
 
     // 取得成功した場合
     (position) => {
-      currentLat = position.coords.latitude;
-      currentLon = position.coords.longitude;
-
-
-      const forecastURL = `https://api.openweathermap.org/data/2.5/forecast?lat=${currentLat}&lon=${currentLon}&appid=${myAppID}&units=${myUnits}&lang=${myLang}`;
-
-
-
-
-
-      //getWeather作成
-      const getWeather = async () => {
-
-        const res = await fetch(forecastURL);
-        const data = await res.json();
-        return data;
-
-      }
-
-      //getWeather実行
-      getWeather()
-        .then(data => {
-
-          //気温
-          const tempGroup = document.querySelectorAll(".js-temp");
-          tempGroup.forEach((value, index) => {
-            tempGroup[index].innerText =
-              JSON.stringify(data.list[8 * index].main.temp)
-          });
-
-
-          //気圧
-          const pressureGroup = document.querySelectorAll(".js-pressure");
-          pressureGroup.forEach((value, index) => {
-            pressureGroup[index].innerText =
-              JSON.stringify(data.list[8 * index].main.pressure);
-          });
-
-          //湿度
-          const humidityGroup = document.querySelectorAll(".js-humidity");
-          humidityGroup.forEach((value, index) => {
-            humidityGroup[index].innerText =
-              JSON.stringify(data.list[8 * index].main.humidity)
-          });
-
-
-          //アイコン
-          const weatherIconGroup = document.querySelectorAll(".js-icon");
-          weatherIconGroup.forEach((value, index) => {
-            const iconImg = weatherIconGroup[index].firstElementChild;
-            iconImg.src = `img/${JSON.stringify(data.list[8*index].weather[0].icon).replace(/\"/g, "")}.svg`;
-            iconImg.alt = data.list[8 * index].weather[0].main;
-          });
-
-
-
-          //説明
-          const descriptionGroup = document.querySelectorAll(".js-description");
-          descriptionGroup.forEach((value, index) => {
-            descriptionGroup[index].innerText = JSON.stringify(data.list[8 * index].weather[0].description);
-          })
-
-
-          //現在地
-          const currentPosition = document.querySelector("#js-currentPosition");
-          currentPosition.innerText = "現在地：" + data.city.name;
-
-
-
-          //地図
-          const embedMap = document.querySelector("#js-embedMap");
-          embedMap.src = `https://maps.google.co.jp/maps?output=embed&q=${currentLat},${currentLon}`;
-
-
-
-
-        })
-
+      getWeather(position.coords.latitude, position.coords.longitude)
+        .then(hideLoading)
         .catch(err => {
           console.log(err);
-
-        })
+          showLastResult("天気情報を取得できませんでした。");
+        });
     },
 
     // 取得失敗した場合
     (error) => {
       switch (error.code) {
         case 1: //PERMISSION_DENIED
-          alert("位置情報の利用が許可されていません");
+          showMessage("位置情報の利用が許可されていません。");
           break;
         case 2: //POSITION_UNAVAILABLE
-          alert("現在位置が取得できませんでした");
+          showLastResult("現在位置が取得できませんでした。");
           break;
         case 3: //TIMEOUT
-          alert("タイムアウトになりました");
+          showLastResult("現在位置の取得がタイムアウトになりました。");
           break;
         default:
-          alert("その他のエラー(エラーコード:" + error.code + ")");
+          showMessage("その他のエラー(エラーコード:" + error.code + ")");
           break;
       }
+    },
+
+    {
+      timeout: 10000
     });
 };
 
 
-getPosition();
+//Service Workerを登録
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker.register("sw.js").catch(err => {
+    console.log(err);
+  });
+}
+
+
+//Geolocation api使用可能の場合
+if (navigator.geolocation) {
+  getPosition();
+}
+
+//Geolocation API使用不可能の場合
+else {
+  showMessage("この端末は現在位置を取得できません。");
+}

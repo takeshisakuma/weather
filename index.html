@@ -16,14 +16,14 @@
   <meta property="og:image" content="https://takeshisakuma.github.io/weather/img/ogp.png">
   <meta property="og:description" content="openweathermapのAPIを利用した天気予報アプリです。">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="manifest" href="https://takeshisakuma.github.io/weather/manifest.json">
+  <link rel="manifest" href="manifest.json">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/main.js" defer></script>
 </head>
 <body>
   <header class="headerArea">
     <div class="header__content">
-      <h1 class="mainHeadig">Weather App</h1>
+      <h1 class="mainHeading">Weather App</h1>
     </div>
   </header>
 
@@ -33,11 +33,9 @@
 
       <div class="dayCardGroup">
 
-        <article class="dayCard">
+        <article class="dayCard js-dayCard">
           <h2 class="dayHeading">現在の天気</h2>
-          <p class="icon js-icon">
-            <img src="img/00.svg">
-          </p>
+          <p class="icon js-icon"><img src="img/00.svg" alt=""></p>
           <p class="description js-description">　</p>
 
           <div class="dataGroup">
@@ -56,10 +54,10 @@
           </div>
         </article>
 
-        <article class="dayCard">
+        <article class="dayCard js-dayCard">
           <h2 class="dayHeading">24時間後の天気</h2>
-          <p class="icon js-icon"><img src="img/00.svg"></p>
-          <p class="js-description description">　</p>
+          <p class="icon js-icon"><img src="img/00.svg" alt=""></p>
+          <p class="description js-description">　</p>
 
           <div class="dataGroup">
             <p class="tempChild">気温<br>
@@ -72,15 +70,16 @@
             </p>
             <p class="tempChild">気圧<br>
               <span class="js-pressure tempNumber">??</span>
-              hpa
+              hPa
             </p>
           </div>
         </article>
 
-        <article class="dayCard">
+        <article class="dayCard js-dayCard">
           <h2 class="dayHeading">48時間後の天気</h2>
-          <p class="icon js-icon"><img src="img/00.svg"></p>
+          <p class="icon js-icon"><img src="img/00.svg" alt=""></p>
           <p class="description js-description">　</p>
+
           <div class="dataGroup">
             <p class="tempChild">気温<br>
               <span class="js-temp tempNumber">??</span>
@@ -89,10 +88,11 @@
             <p class="tempChild">湿度<br>
               <span class="js-humidity tempNumber">??</span>
               %
-              <p class="tempChild">気圧<br>
-                <span class="js-pressure tempNumber">??</span>
-                hPa
-              </p>
+            </p>
+            <p class="tempChild">気圧<br>
+              <span class="js-pressure tempNumber">??</span>
+              hPa
+            </p>
           </div>
         </article>
 
@@ -102,8 +102,8 @@
 
     <section class="mapSection">
       <div class="map__content">
-        <p id="js-currentPosition" class="currentPosition">位置情報の取得が許可されていません。</p>
-        <iframe id="js-embedMap" class="embedMap"></iframe>
+        <p id="js-currentPosition" class="currentPosition">現在地を取得しています…</p>
+        <iframe id="js-embedMap" class="embedMap" title="現在地の地図" hidden></iframe>
       </div>
     </section>
 
@@ -120,15 +120,13 @@
 
   <div class="loadingLayer active" id="js-loadingLayer">
     <div class="loadingIconBox">
-      <div class="loadingBar1"></div>
-      <div class="loadingBar2"></div>
-      <div class="loadingBar3"></div>
-      <div class="loadingBar4"></div>
-      <div class="loadingBar5"></div>
+      <div class="loadingBar"></div>
+      <div class="loadingBar"></div>
+      <div class="loadingBar"></div>
+      <div class="loadingBar"></div>
+      <div class="loadingBar"></div>
     </div>
-
-
-
+  </div>
 
 </body>
 </html>
